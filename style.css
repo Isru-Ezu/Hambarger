@@ -1,0 +1,138 @@
+html{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+}
+*{
+    box-sizing: inherit;
+}
+body{
+    background: white;
+    font-size: 1.6rem;
+}
+.container{
+    max-width: 960px;
+    margin: 0 auto;
+}
+.header{
+    width: 100%;
+    height: 60px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu{
+    display: flex;
+    list-style: none;
+
+    
+}
+.menu li{
+    margin-right: 1rem;
+
+}
+.nav{
+    display: flex;
+}
+.btn-mobile{
+    opacity: 0;
+}
+.btn-mobile input{
+    display: none;
+}
+a{
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: black;
+    padding: 1rem;
+}
+a:hover{
+    background: darkgray;
+    color: white;
+    border-radius: 5px;
+}
+@media (max-width:800px){
+    .header{
+        position: relative;
+        
+    }
+    .nav{
+        
+        display: block;
+    }
+    .menu{
+        width: 100%;
+        display: block;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        border: 1px solid black;
+        height: 0;
+        visibility: hidden;
+        overflow-y: hidden;
+      
+    }
+    .btn-mobile #input:checked + ul{
+        height: calc(100vh - 60px);
+        visibility: visible;
+        overflow-y: scroll;
+        background: green;
+    }
+    .menu a{
+        padding: 1rem;
+        display: block;
+        border-bottom: 1px solid gray;
+    }
+    
+    .btn-mobile{
+        display: flex;
+        opacity: 1;
+        gap: 5px;
+        align-items: center;
+        font-size: 2rem;
+        cursor: pointer;
+        
+      
+    }
+    .hamberger{
+     position: relative;
+    width: 30px;
+    height: 2px;
+    display: block;
+    background: black;
+    }
+    .hamberger::after{
+        content: "";
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        top: 7px;
+        display: block;
+        background: black;
+    }
+    .hamberger::before{
+        content: "";
+        width: 100%;
+        height: 1px;
+        position: absolute;
+       bottom: 7px;
+        display: block;
+        background: black;
+    }
+    .btn-mobile input:checked + .hamberger{
+        background:transparent;
+        
+    }
+    .btn-mobile input:checked + .hamberger::before{
+       top: 0;
+       transform: rotate(-45deg);
+        
+    }
+    .btn-mobile input:checked + .hamberger::after{
+        top: 0;
+        transform: rotate(45deg);}
+         
+    
+}
